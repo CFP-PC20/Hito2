@@ -1,0 +1,41 @@
+<script src="../add-note/add-note.page.ts"></script>
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-back-button [routerLink]="'/view-note/'+note.id" slot="primary" text="Volver" icon="arrow-back"></ion-back-button>
+    <ion-title slot="secondary">Actualizar Entrada</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+
+    <ion-list>
+      <ion-item>
+        <ion-input placeholder="Título" [(ngModel)]="note.title"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-textarea rows="10" [(ngModel)]="note.content" placeholder="Descripción"></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="calendar"></ion-icon> <ion-datetime [(ngModel)]="date" (ionChange)="calculateDate()"></ion-datetime>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-input type="url" placeholder="Imagen" [(ngModel)]="note.image"></ion-input>
+        <ion-button fill="clear" size="large" (click)="captureImage()"> <ion-icon name="camera"></ion-icon>  </ion-button>
+      </ion-item>
+
+      <img [src]="note.image" alt=""/>
+    </ion-list>
+
+    <ion-button fill="clear" size="large" expand="full" (click)="updateNote()"> <ion-icon name="create"> &nbsp; </ion-icon> Actualizar Entrada </ion-button>
+  </ion-card>
+  <br><br><br><br>
+</ion-content>
+
+
+
+<my-footer></my-footer>

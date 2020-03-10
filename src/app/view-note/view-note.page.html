@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-back-button defaultHref="home" slot="primary" text="Volver" icon="arrow-back"></ion-back-button>
+    <ion-title slot="secondary">{{note.title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-list>
+      <ion-item>
+        <p style="white-space: nowrap">{{note.createdAt | date: 'short'}} - {{note.title}}</p>
+        <ion-button fill="clear" size="big" slot="end" [routerLink]="'/update-note/'+note.id"><ion-icon name="create"></ion-icon> &nbsp;Actualizar </ion-button>
+        <ion-button fill="clear" size="big" color="danger" slot="end" (click)="deleteNote()"><ion-icon name="trash"></ion-icon> &nbsp;Borrar </ion-button>
+      </ion-item>
+      <ion-item>
+        <p style="display: block;">{{note.content}}</p>
+      </ion-item>
+        <img style="display: block;" src="{{note.image}}">
+    </ion-list>
+  </ion-card>
+
+  <br><br><br><br>
+
+</ion-content>
+
+<my-footer></my-footer>
